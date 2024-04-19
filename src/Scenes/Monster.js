@@ -49,6 +49,7 @@ class Monster extends Phaser.Scene {
         my.sprite.smile = this.add.sprite(this.bodyX, this.bodyY + 60, "monsterParts", "mouth_closed_happy.png");
         my.sprite.antenna = this.add.sprite(this.bodyX + 14, this.bodyY - 90, "monsterParts", "detail_dark_antenna_large.png");
 
+        //my.sprite.smile.visible = false;
         my.sprite.smile.visible = false;
 
         
@@ -58,7 +59,7 @@ class Monster extends Phaser.Scene {
         let my = this.my;    // create an alias to this.my for readability
         //changes during runtime(movement, changing expressions)
         //var s = this.input.keyboard.addkey('s');
-        var s = this.input.keyboard.addkey('s');
+       // var s = this.input.keyboard.addkey('s');
 
        
     }
