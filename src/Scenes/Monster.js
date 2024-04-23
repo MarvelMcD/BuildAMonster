@@ -46,22 +46,62 @@ class Monster extends Phaser.Scene {
         my.sprite.LeftBrow = this.add.sprite(this.bodyX + -50, this.bodyY -20, "monsterParts", "eyebrowA.png");
         my.sprite.LeftBrow.flipX = true;
         my.sprite.nose = this.add.sprite(this.bodyX, this.bodyY + 20, "monsterParts", "nose_red.png");
-        my.sprite.smile = this.add.sprite(this.bodyX, this.bodyY + 60, "monsterParts", "mouth_closed_happy.png");
         my.sprite.antenna = this.add.sprite(this.bodyX + 14, this.bodyY - 90, "monsterParts", "detail_dark_antenna_large.png");
 
+        my.sprite.smile = this.add.sprite(this.bodyX, this.bodyY + 60, "monsterParts", "mouth_closed_happy.png");
+        my.sprite.fangs = this.add.sprite(this.bodyX, this.bodyY + 60, "monsterParts", "mouthB.png");
+
+
         //my.sprite.smile.visible = false;
-        my.sprite.smile.visible = false;
+        my.sprite.fangs.visible = false;
 
         
     }
 
     update() {
         let my = this.my;    // create an alias to this.my for readability
-        //changes during runtime(movement, changing expressions)
-        //var s = this.input.keyboard.addkey('s');
-       // var s = this.input.keyboard.addkey('s');
-
-       
+        this.input.keyboard.on("keydown", function(event){
+            if(event.code == "KeyS"){
+                my.sprite.smile.visible = true;
+                my.sprite.fangs.visible = false;
+            }
+            else if(event.code == "KeyF"){
+                my.sprite.fangs.visible = true;
+                my.sprite.smile.visible = false;
+            }
+            if(event.code == "KeyD"){
+                my.sprite.body.x += 0.01;
+                my.sprite.RightArm.x += 0.01;
+                my.sprite.LeftArm.x += 0.01;
+                my.sprite.RightLeg.x += 0.01;
+                my.sprite.LeftLeg.x += 0.01;
+                my.sprite.RightEye.x += 0.01;
+                my.sprite.LeftEye.x += 0.01;
+                my.sprite.RightBrow.x += 0.01;
+                my.sprite.LeftBrow.x += 0.01;
+                my.sprite.nose.x += 0.01;
+                my.sprite.antenna.x += 0.01;
+                my.sprite.smile.x += 0.01;
+                my.sprite.fangs.x += 0.01;
+                
+            }
+            if(event.code == "KeyA"){
+                my.sprite.body.x -= 0.01;
+                my.sprite.RightArm.x -= 0.01;
+                my.sprite.LeftArm.x -= 0.01;
+                my.sprite.RightLeg.x -= 0.01;
+                my.sprite.LeftLeg.x -= 0.01;
+                my.sprite.RightEye.x -= 0.01;
+                my.sprite.LeftEye.x -= 0.01;
+                my.sprite.RightBrow.x -= 0.01;
+                my.sprite.LeftBrow.x -= 0.01;
+                my.sprite.nose.x -= 0.01;
+                my.sprite.antenna.x -= 0.01;
+                my.sprite.smile.x -= 0.01;
+                my.sprite.fangs.x -= 0.01;
+                
+            }
+        })
     }
 
 }
